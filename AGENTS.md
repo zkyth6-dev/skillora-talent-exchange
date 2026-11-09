@@ -28,3 +28,13 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Skillora architecture rules
+
+- All UI copy lives in `src/lib/i18n/messages/{en,id}.ts` and is read via `useI18n().m`; `id.ts` is typed against `Messages` so missing keys fail typecheck. Why: translation-ready UI without hardcoded strings.
+- Money, numbers, dates, country and language names are formatted only through `src/lib/format.ts` (Intl), with amounts stored as integer minor units plus an ISO currency. Why: locale-correct display and no float drift.
+- Platform defaults (commission rate, base currency, locales) live in `src/lib/platform-config.ts`; once the admin panel exists, the `platform_settings` table overrides them. Fee math goes through `calculateOrderFees`. Why: one configurable source for fees shown to users.
+- Development sample listings live only in `src/data/preview-services.ts` and every surface rendering them shows `<PreviewBadge />`. Why: never present fabricated listings, reviews or earnings as real.
+- Marketplace search/filter/sort/pagination is the pure `filterServices` in `src/lib/marketplace-filter.ts`; `/services` URL params are sanitised by `parseServicesSearch`. Why: testable logic and safe URL input.
+- Theme is a `.dark` class on `<html>` set pre-paint by `THEME_INIT_SCRIPT`; locale preference is applied after hydration. Why: no theme flash and no hydration mismatch.
+- Shared layout (header/footer, providers) lives in `src/routes/__root.tsx`; page sections live in `src/components/<area>/`.

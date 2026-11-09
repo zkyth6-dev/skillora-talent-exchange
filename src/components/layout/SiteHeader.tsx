@@ -70,7 +70,7 @@ export function SiteHeader() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[86vw] max-w-sm overflow-y-auto">
-              <SheetHeader>
+              <SheetHeader className="text-left">
                 <SheetTitle asChild>
                   <span>
                     <Logo />
