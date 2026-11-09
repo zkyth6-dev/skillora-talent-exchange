@@ -57,7 +57,9 @@ export function FilterPanel({
           onValueChange={(v) => onChange({ category: isCategorySlug(v) ? v : undefined })}
         >
           <SelectTrigger id="filter-category" className="w-full">
-            <SelectValue />
+            <SelectValue>
+              {values.category ? m.categories.labels[values.category] : m.marketplace.allCategories}
+            </SelectValue>
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">{m.marketplace.allCategories}</SelectItem>

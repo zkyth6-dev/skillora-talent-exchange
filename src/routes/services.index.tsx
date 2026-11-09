@@ -178,7 +178,7 @@ function ServicesPage() {
                 }
               >
                 <SelectTrigger className="w-48 bg-card" aria-label={m.marketplace.sort}>
-                  <SelectValue />
+                  <SelectValue>{m.marketplace.sorts[search.sort ?? "recommended"]}</SelectValue>
                 </SelectTrigger>
                 <SelectContent align="end">
                   {SORT_KEYS.map((k) => (
