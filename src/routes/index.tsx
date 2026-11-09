@@ -1,23 +1,46 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Benefits } from "@/components/landing/Benefits";
+import { CategoryGrid } from "@/components/landing/CategoryGrid";
+import { FeaturedFreelancers } from "@/components/landing/FeaturedFreelancers";
+import { FeaturedServices } from "@/components/landing/FeaturedServices";
+import { FinalCta } from "@/components/landing/FinalCta";
+import { Hero } from "@/components/landing/Hero";
+import { HowItWorks } from "@/components/landing/HowItWorks";
+import { TrustSafety } from "@/components/landing/TrustSafety";
 
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Skillora — Your Skills. Your Opportunity." },
+      {
+        name: "description",
+        content:
+          "Skillora is a global marketplace for digital services. Hire trusted freelancers or turn your skills into real work — with transparent fees.",
+      },
+      { property: "og:title", content: "Skillora — Your Skills. Your Opportunity." },
+      {
+        property: "og:description",
+        content:
+          "A global digital services marketplace connecting people who have skills with people and businesses who need them.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Hero />
+      <CategoryGrid />
+      <FeaturedServices />
+      <HowItWorks />
+      <FeaturedFreelancers />
+      <Benefits />
+      <TrustSafety />
+      <FinalCta />
+    </>
   );
 }
