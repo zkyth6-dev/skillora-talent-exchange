@@ -11,11 +11,11 @@ export const DELIVERY_OPTIONS = [1, 3, 7, 14] as const;
 export const RATING_OPTIONS = [4, 4.5, 4.8] as const;
 
 export interface FilterValues {
-  category?: CategorySlug;
-  min?: number;
-  max?: number;
-  delivery?: number;
-  rating?: number;
+  category?: CategorySlug | undefined;
+  min?: number | undefined;
+  max?: number | undefined;
+  delivery?: number | undefined;
+  rating?: number | undefined;
 }
 
 export function FilterPanel({

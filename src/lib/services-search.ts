@@ -3,14 +3,14 @@ import { SORT_KEYS, type SortKey } from "@/lib/marketplace-filter";
 
 /** URL search contract for /services. Every key is optional. */
 export interface ServicesSearch {
-  q?: string;
-  category?: CategorySlug;
-  min?: number;
-  max?: number;
-  delivery?: number;
-  rating?: number;
-  sort?: SortKey;
-  page?: number;
+  q?: string | undefined;
+  category?: CategorySlug | undefined;
+  min?: number | undefined;
+  max?: number | undefined;
+  delivery?: number | undefined;
+  rating?: number | undefined;
+  sort?: SortKey | undefined;
+  page?: number | undefined;
 }
 
 function num(v: unknown): number | undefined {
@@ -19,7 +19,11 @@ function num(v: unknown): number | undefined {
 }
 
 /** Sanitises untrusted URL input into a safe, typed search object. */
-export function parseServicesSearch(raw: Record<string, unknown>): ServicesSearch {
+export function parseServicesSearch(input: Record<string, unknown>): ServicesSearch {
+  const raw = input as {
+    q?: unknown; category?: unknown; min?: unknown; max?: unknown;
+    delivery?: unknown; rating?: unknown; sort?: unknown; page?: unknown;
+  };
   const out: ServicesSearch = {};
   if (typeof raw.q === "string" && raw.q.trim()) out.q = raw.q.trim().slice(0, 100);
   if (isCategorySlug(raw.category)) out.category = raw.category;

@@ -15,19 +15,19 @@ export interface FilterableService {
   reviewCount: number;
   tags: string[];
   /** Extra searchable text, e.g. provider name or category label. */
-  searchText?: string;
+  searchText?: string | undefined;
 }
 
 export interface MarketplaceFilters {
-  q?: string;
-  category?: CategorySlug;
+  q?: string | undefined;
+  category?: CategorySlug | undefined;
   /** Price bounds in major units (e.g. dollars). */
-  minPrice?: number;
-  maxPrice?: number;
-  maxDelivery?: number;
-  minRating?: number;
-  sort?: SortKey;
-  page?: number;
+  minPrice?: number | undefined;
+  maxPrice?: number | undefined;
+  maxDelivery?: number | undefined;
+  minRating?: number | undefined;
+  sort?: SortKey | undefined;
+  page?: number | undefined;
 }
 
 export interface FilterResult<T> {

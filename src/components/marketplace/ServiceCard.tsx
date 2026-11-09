@@ -10,7 +10,7 @@ export function ServiceCard({
   eager = false,
 }: {
   service: PreviewService;
-  provider?: PreviewProvider;
+  provider?: PreviewProvider | undefined;
   eager?: boolean;
 }) {
   const { m, intlLocale } = useI18n();
