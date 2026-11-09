@@ -8,7 +8,7 @@ import { SectionHeading } from "./SectionHeading";
 export function CategoryGrid() {
   const { m } = useI18n();
   return (
-    <section className="container-page py-20 md:py-24" aria-labelledby="categories-title">
+    <section className="container-page py-20 md:py-24">
       <SectionHeading
         title={m.categories.title}
         subtitle={m.categories.subtitle}

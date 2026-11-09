@@ -11,7 +11,7 @@ export function FeaturedFreelancers() {
   const providers = PREVIEW_PROVIDERS.slice(0, 6);
 
   return (
-    <section className="container-page py-20 md:py-24" aria-labelledby="freelancers-title">
+    <section className="container-page py-20 md:py-24">
       <PreviewBadge className="mb-4" />
       <SectionHeading title={m.freelancers.title} subtitle={m.freelancers.subtitle} />
       <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

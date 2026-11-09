@@ -14,7 +14,7 @@ export function Benefits() {
   const money = (v: number) => formatMoney(v, PLATFORM_DEFAULTS.baseCurrency, intlLocale);
 
   return (
-    <section className="container-page py-20 md:py-24" aria-labelledby="benefits-title">
+    <section className="container-page py-20 md:py-24">
       <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr] lg:items-start">
         <div>
           <SectionHeading title={m.benefits.title} subtitle={m.benefits.subtitle} />

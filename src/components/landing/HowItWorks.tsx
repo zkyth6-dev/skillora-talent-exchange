@@ -9,7 +9,7 @@ export function HowItWorks() {
   const steps = side === "clients" ? m.how.clientSteps : m.how.providerSteps;
 
   return (
-    <section id="how-it-works" className="border-y bg-card py-20 md:py-24" aria-labelledby="how-title">
+    <section id="how-it-works" className="border-y bg-card py-20 md:py-24">
       <div className="container-page">
         <SectionHeading title={m.how.title} subtitle={m.how.subtitle} align="center" />
         <div

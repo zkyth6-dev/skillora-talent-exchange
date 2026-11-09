@@ -14,7 +14,7 @@ export function FeaturedServices() {
   const items = FEATURED_IDS.map((id) => PREVIEW_SERVICES.find((s) => s.id === id)!).filter(Boolean);
 
   return (
-    <section className="bg-gradient-soft py-20 md:py-24" aria-labelledby="featured-title">
+    <section className="bg-gradient-soft py-20 md:py-24">
       <div className="container-page">
         <PreviewBadge withNote className="mb-4" />
         <SectionHeading
